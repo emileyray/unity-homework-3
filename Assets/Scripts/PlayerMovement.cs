@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float rotationAcceleration = 5;
-    public float maxRotationSpeed = 200;
+    public float rotationAcceleration = 0.03f;
+    public float maxRotationSpeed = 1.5f;
     
-    public float movingAcceleration = 5;
-    public float maxMovingSpeed = 200;
+    public float movingAcceleration = 0.3f;
+    public float maxMovingSpeed = 10f;
 
     private float _currentRotationSpeed = 0;
     private float _currentMovingSpeed = 0;
@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
                 _currentRotationSpeed -= rotationAcceleration / 2;
             else
                 _currentRotationSpeed += rotationAcceleration / 2;
-            if (Mathf.Abs(_currentRotationSpeed) < 0)
+            if (Mathf.Abs(_currentRotationSpeed) <= 0)
                 _currentRotationSpeed = 0;
         }
         
@@ -96,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
                 _currentMovingSpeed -= movingAcceleration / 2;
             else
                 _currentMovingSpeed += movingAcceleration / 2;
-            if (Mathf.Abs(_currentMovingSpeed) < 0)
+            if (Mathf.Abs(_currentMovingSpeed) <= 0)
                 _currentMovingSpeed = 0;
         }
 
